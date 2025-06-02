@@ -1,0 +1,935 @@
+/* Variables de Color (CMYK Inspiradas) */
+:root {
+    --color-cyan: hsl(185, 80%, 40%);  /* Un cian vibrante, pero no neón */
+    --color-magenta: hsl(330, 80%, 50%); /* Un magenta cálido y atractivo */
+    --color-yellow: hsl(45, 100%, 50%);  /* Un amarillo soleado, pero no chillón */
+    --color-black: hsl(0, 0%, 15%);    /* Negro oscuro para el texto principal */
+    --color-light-gray: hsl(0, 0%, 95%); /* Fondo claro */
+    --color-white: #ffffff;
+    --color-dark-gray: hsl(0, 0%, 30%); /* Texto secundario, footers */
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
+/* Reset y Estilos Globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-light-gray);
+    scroll-behavior: smooth; /* Desplazamiento suave para anclas */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Clases de Utilidad */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: var(--font-secondary);
+    font-size: 2.5em;
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-cyan);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Botones */
+.btn {
+    display: inline-flex; /* Para centrar el ícono con el texto */
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espacio entre texto e ícono */
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+
+.btn-primary {
+    background-color: var(--color-cyan);
+    color: var(--color-white);
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-magenta);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 2px solid var(--color-black);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-dark-gray);
+    border-color: var(--color-dark-gray);
+    transform: translateY(-3px);
+}
+
+/* Header */
+.main-header {
+    background-color: var(--color-white);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-secondary);
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+.logo span {
+    color: var(--color-cyan);
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 40px;
+}
+
+.main-nav a {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    color: var(--color-dark-gray);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-cyan);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.main-nav a:hover {
+    color: var(--color-cyan);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?printing,office') no-repeat center center/cover;
+    color: var(--color-white);
+    text-align: center;
+    padding: 150px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-secondary);
+    font-size: 3.8em;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    color: var(--color-yellow); /* Destacar el título con amarillo */
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.service-card .icon-large {
+    font-size: 3.5em;
+    color: var(--color-cyan);
+    margin-bottom: 20px;
+    background-color: var(--color-light-gray);
+    border-radius: 50%;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-card h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--color-black);
+}
+
+.service-card p {
+    font-size: 1em;
+    color: var(--color-dark-gray);
+    margin-bottom: 25px;
+}
+
+.service-card .price-list {
+    text-align: left;
+    margin-top: auto; /* Empuja la lista de precios hacia abajo */
+    margin-bottom: 30px; /* Espacio antes del botón */
+}
+
+.service-card .price-list li {
+    font-size: 0.95em;
+    color: var(--color-dark-gray);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.service-card .price-list li i {
+    color: var(--color-magenta); /* Pequeños detalles con magenta */
+    margin-right: 10px;
+    font-size: 0.7em;
+}
+
+.service-card .price-list li strong {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+/* Estilos específicos para Online vs. In-person services */
+.service-card.in-person-service {
+    background-color: var(--color-black); /* Fondo oscuro para destacar que es diferente */
+    color: var(--color-white);
+}
+
+.service-card.in-person-service .icon-large {
+    color: var(--color-yellow); /* Ícono amarillo */
+    background-color: var(--color-dark-gray);
+}
+
+.service-card.in-person-service h3 {
+    color: var(--color-yellow);
+}
+
+.service-card.in-person-service p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.service-card.in-person-service .price-list li {
+    color: rgba(255, 255, 255, 0.9); /* Mejor contraste para el texto de la lista */
+}
+.service-card.in-person-service .price-list li i {
+    color: var(--color-yellow); /* Íconos en amarillo para contraste */
+}
+.service-card.in-person-service .price-list li strong {
+    color: var(--color-white); /* Precios en blanco para mayor legibilidad */
+}
+
+.service-card.in-person-service .btn-primary {
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+}
+
+.service-card.in-person-service .btn-primary:hover {
+    background-color: var(--color-white);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4);
+}
+
+
+/* How It Works Section */
+.how-it-works-section {
+    background-color: var(--color-white);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.step-card {
+    padding: 30px;
+    background-color: var(--color-light-gray);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-yellow); /* Amarillo para los números */
+    color: var(--color-black);
+    font-family: var(--font-secondary);
+    font-size: 2em;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    border: 3px solid var(--color-black);
+}
+
+.step-card h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: var(--color-black);
+}
+
+.step-card p {
+    color: var(--color-dark-gray);
+}
+
+
+/* Order Form Section */
+.order-form-section {
+    background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-magenta) 100%);
+    color: var(--color-white);
+}
+
+.order-form-section .section-title {
+    color: var(--color-white);
+}
+
+.order-form-section .section-title::after {
+    background-color: var(--color-yellow);
+}
+
+.printing-form {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--color-black);
+    position: relative; /* Para los indicadores de paso */
+    min-height: 400px; /* Para asegurar espacio suficiente para el formulario */
+}
+
+/* Form Steps */
+.form-step {
+    display: none; /* Oculta todos los pasos por defecto */
+    animation: fadeIn 0.5s ease-out; /* Animación de entrada */
+}
+
+.form-step.current-step {
+    display: block; /* Muestra el paso actual */
+}
+
+.form-step h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.8em;
+    color: var(--color-cyan);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-dark-gray);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"], /* Mantenemos el estilo para el email si se reintroduce */
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: var(--font-primary);
+    background-color: var(--color-white);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+}
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group select:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--color-magenta); /* Rojo para campos inválidos */
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+}
+
+.form-group small {
+    display: block;
+    color: var(--color-dark-gray);
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+/* Estilo para los radios */
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: 400; /* No tan bold como las etiquetas principales */
+}
+
+.radio-group input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-cyan);
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: var(--color-cyan);
+    border-color: var(--color-cyan);
+}
+
+.radio-group input[type="radio"]:checked::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+/* Estilo para la selección visual de servicios (tarjetas) */
+.service-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px; /* Más espacio */
+}
+
+.service-option-card {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-light-gray);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.service-option-card:hover {
+    border-color: var(--color-cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.1);
+}
+
+.service-option-card input[type="radio"] {
+    /* Ocultar el radio button nativo */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none; /* Asegura que no sea interactuable */
+}
+
+.service-option-card .icon-service-option {
+    font-size: 3em;
+    color: var(--color-dark-gray);
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.service-option-card span {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--color-black);
+    transition: color 0.3s ease;
+}
+
+/* Estilo cuando la tarjeta está seleccionada */
+.service-option-card input[type="radio"]:checked + .icon-service-option {
+    color: var(--color-cyan); /* Cambia el color del icono */
+}
+
+.service-option-card input[type="radio"]:checked ~ span {
+    color: var(--color-cyan); /* Cambia el color del texto */
+}
+
+.service-option-card.selected {
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 0 3px var(--color-cyan), 0 6px 15px rgba(0, 188, 212, 0.2);
+}
+
+.service-option-card.selected .icon-service-option,
+.service-option-card.selected span {
+    color: var(--color-cyan);
+}
+
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.form-buttons .btn {
+    flex-grow: 1;
+    margin: 0 10px;
+    font-size: 1.1em;
+    padding: 15px 30px;
+}
+
+.form-buttons .btn:first-child {
+    margin-left: 0;
+}
+
+.form-buttons .btn:last-child {
+    margin-right: 0;
+}
+
+/* Step Indicators (dots) */
+.step-indicators {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.step-dot {
+    height: 12px;
+    width: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.step-dot.active {
+    background-color: var(--color-cyan);
+    border-color: var(--color-cyan);
+    transform: scale(1.2);
+}
+
+.form-note {
+    text-align: center;
+    color: var(--color-white);
+    margin-top: 30px;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.form-submission-message {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 40px auto 0;
+    color: var(--color-black);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: 300px; /* Para mantener consistencia con el formulario */
+    justify-content: center;
+}
+
+.form-submission-message p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: var(--color-dark-gray);
+}
+
+/* Estilos para el precio de referencia */
+.reference-price-container {
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.2);
+}
+
+.reference-price-container .price-label {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.reference-price-container .price-value {
+    font-family: var(--font-secondary);
+    font-weight: 800;
+    font-size: 2em;
+    color: var(--color-magenta); /* Un toque de magenta para el precio */
+    margin-bottom: 10px;
+}
+
+.reference-price-container .price-note {
+    font-size: 0.85em;
+    color: var(--color-dark-gray);
+    line-height: 1.4;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 60px 0 20px;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: var(--color-cyan);
+}
+
+.footer-section h3 span {
+    color: var(--color-white); /* Para el logo en el footer */
+}
+
+.footer-section p, .footer-section li {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--color-yellow);
+}
+
+.footer-section .fa-map-marker-alt,
+.footer-section .fa-phone,
+.footer-section .fa-envelope {
+    margin-right: 10px;
+    color: var(--color-magenta);
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    text-align: center;
+    margin-right: 10px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--color-cyan);
+    color: var(--color-white);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .main-nav ul {
+        margin-left: 0;
+    }
+    .main-nav li {
+        margin-left: 25px;
+    }
+    .hero-content h1 {
+        font-size: 3em;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-section ul {
+        padding: 0;
+    }
+    .footer-section li {
+        margin-bottom: 5px;
+    }
+    .footer-section .fa-map-marker-alt,
+    .footer-section .fa-phone,
+    .footer-section .fa-envelope {
+        margin-right: 5px;
+    }
+    .social-links {
+        text-align: center;
+    }
+    .form-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .form-buttons .btn {
+        margin: 0; /* Eliminar márgenes laterales en columnas */
+    }
+    .service-selection-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logo {
+        margin-bottom: 20px;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav li {
+        margin: 0 15px 10px;
+    }
+    .hero-section {
+        padding: 100px 0;
+        min-height: 500px;
+    }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    .service-card, .step-card, .printing-form {
+        padding: 30px;
+    }
+    .printing-form {
+        margin: 0 10px;
+    }
+    .form-group label {
+        font-size: 0.9em;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 10px;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .main-nav li {
+        margin: 0 10px 10px;
+    }
+    .service-card {
+        padding: 25px;
+    }
+    .service-card .icon-large {
+        width: 80px;
+        height: 80px;
+        font-size: 3em;
+    }
+    .service-card h3 {
+        font-size: 1.5em;
+    }
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+    }
+    .radio-group label {
+        margin-right: 10px;
+        font-size: 0.9em;
+    }
+    .radio-group input[type="radio"] {
+        width: 18px;
+        height: 18px;
+    }
+    .step-indicators {
+        bottom: 10px; /* Ajuste para móviles */
+    }
+    .service-option-card {
+        padding: 20px;
+    }
+    .service-option-card .icon-service-option {
+        font-size: 2.5em;
+    }
+    .service-option-card span {
+        font-size: 1em;
+    }
+}
+
+
+.service-card.in-person-service .icon-large {
+    color: var(--color-yellow); /* Ícono amarillo */
+    background-color: var(--color-dark-gray);
+}
+.service-card.in-person-service h3 {
+    color: var(--color-yellow);
+}
+.service-card.in-person-service p {
+    color: rgba(255, 255, 255, 0.8);
+}
+.service-card.in-person-service .price-list li {
+    color: rgba(255, 255, 255, 0.9); /* Mejor contraste para el texto de la lista */
+}
+.service-card.in-person-service .price-list li i {
+    color: var(--color-yellow); /* Íconos en amarillo para contraste */
+}
+.service-card.in-person-service .price-list li strong {
+    color: var(--color-white); /* Precios en blanco para mayor legibilidad */
+}
+
