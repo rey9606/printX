@@ -153,6 +153,6 @@ services:
 ---
 
 **Relacionado**
-- [Getting Started](../guides/getting-started.md)
-- [API Overview](../api/README.md)
-- [Architecture Overview](../README.md)
+- [Arquitectura General](../../doc/architecture/README.md)
+- [API Overview](../../doc/api/README.md)
+- [Guía de Inicio](../../doc/guides/getting-started.md)

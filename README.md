@@ -4,13 +4,12 @@ Plataforma digital para gestión de servicios de impresión.
 
 ## Quick Links
 
-- [Arquitectura](doc/architecture/README.md)
+- [Arquitectura General](doc/architecture/README.md)
 - [API](doc/api/README.md)
-- [Frontend](doc/frontend/README.md)
-- [Backend](doc/backend/README.md)
-- [Guías](doc/guides/README.md)
 - [Fases de Desarrollo](doc/PHASES.md)
-- [Spec Completo](doc/SPEC.md)
+- [Guía de Inicio](doc/guides/getting-started.md)
+- [Frontend](frontend/ARCHITECTURE.md)
+- [Backend](backend/ARCHITECTURE.md)
 
 ## Tech Stack
 
