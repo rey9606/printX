@@ -60,62 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Hide submission message if navigating back to form
         if (formSubmissionMessage) {
             formSubmissionMessage.style.display = 'none';
-            printingOrderForm.style.display = 'block'; // Ensure form is visible
+            printingOrderForm.style.display = 'block';
         }
 
-        // Scroll to the top of the form for better UX
         printingOrderForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        // Handle visibility and required attributes for Step 2
         if (stepNum === 2) {
             const selectedRadio = document.querySelector('input[name="service"]:checked');
             if (selectedRadio) {
-                // If a service is already selected, show the group and update fields
                 serviceDetailsGroup.style.display = 'block';
-                quantityInput.setAttribute('required', 'required');
-                updateConditionalFields(); // This handles visibility and default values for specific fields
+                updateConditionalFields(); // Solo actualiza visibilidad, no valores
             } else {
-                // If no service selected, hide the entire group and reset all related inputs
-                serviceDetailsGroup.style.display = 'none'; 
-                quantityInput.removeAttribute('required');
-                pagesInput.removeAttribute('required');
-                imagesCountInput.removeAttribute('required');
-                imagesPerSheetSelect.removeAttribute('required');
-
-                // Clear values and reset displays for a completely fresh start in step 2
+                serviceDetailsGroup.style.display = 'none';
                 quantityInput.value = 1;
-                pagesInput.value = ''; // Ensure it's explicitly empty or 0 if hidden
+                pagesInput.value = '';
                 imagesCountInput.value = '';
                 imagesPerSheetSelect.value = '';
-                document.querySelector('input[name="duplex_type"][value="simple"]').checked = true; // Reset duplex radio
-                
-                pagesGroup.style.display = 'none';
-                imagesCountGroup.style.display = 'none';
-                imagesPerSheetGroup.style.display = 'none';
-                duplexGroup.style.display = 'none';
-                referencePriceDisplay.textContent = '$0.00';
+                document.querySelector('input[name="duplex_type"][value="simple"]').checked = true;
             }
-
         } else {
-            // When not on step 2, hide the main service details group
-            serviceDetailsGroup.style.display = 'none'; 
-            
-            // Remove required attributes from all fields in this group
-            quantityInput.removeAttribute('required');
-            pagesInput.removeAttribute('required');
-            imagesCountInput.removeAttribute('required');
-            imagesPerSheetSelect.removeAttribute('required');
-            
-            // Clear values and reset displays
-            quantityInput.value = 1; // Reset quantity to default 1
-            pagesInput.value = '';
-            imagesCountInput.value = '';
-            imagesPerSheetSelect.value = '';
-            document.querySelector('input[name="duplex_type"][value="simple"]').checked = true;
-            referencePriceDisplay.textContent = '$0.00';
+            serviceDetailsGroup.style.display = 'none';
         }
     }
 
@@ -266,8 +232,14 @@ document.addEventListener('DOMContentLoaded', () => {
         printingOrderForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // IMPORTANT: Recalculate price one last time before sending email to ensure accuracy
-            calculateReferencePrice(); 
+            // Recalcular el precio una última vez
+            calculateReferencePrice();
+
+            // Agregar console.log para verificar los valores
+            console.log('Valores antes de generar el correo:');
+            console.log('Cantidad de copias:', quantityInput.value);
+            console.log('Páginas del archivo:', pagesInput.value);
+            console.log('Precio de referencia:', referencePriceDisplay.textContent);
 
             // Save name and phone before *any* reset, for "another order"
             savedName = document.getElementById('name').value;
