@@ -77,14 +77,13 @@ pnpm run start
 
 ```
 printX/
-├── backend/          # NestJS
-├── frontend/         # Angular 21+
-├── doc/             # Documentación
-│   ├── architecture/
-│   ├── api/
-│   ├── frontend/
-│   ├── backend/
-│   └── guides/
+├── backend/          # NestJS + ARCHITECTURE.md
+├── frontend/         # Angular 21+ + ARCHITECTURE.md
+├── doc/              # Documentación
+│   ├── architecture.md
+│   ├── api.md
+│   ├── guides.md
+│   └── PHASES.md
 ├── docker-compose.yml
 └── README.md
 ```
@@ -105,7 +104,7 @@ docker-compose up -d
 
 ## Siguiente Paso
 
-Ver [Arquitectura](architecture/README.md) para entender la estructura del proyecto.
+Ver [Arquitectura](architecture.md) para entender la estructura del proyecto.
 
 ---
 

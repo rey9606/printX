@@ -209,6 +209,6 @@ features/auth/
 ---
 
 **Relacionado**
-- [Arquitectura General](../../doc/architecture/README.md)
-- [API Overview](../../doc/api/README.md)
-- [Guía de Inicio](../../doc/guides/getting-started.md)
+- [Arquitectura General](../../doc/architecture.md)
+- [API Overview](../../doc/api.md)
+- [Guía de Inicio](../../doc/guides.md)

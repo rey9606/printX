@@ -99,6 +99,6 @@ Ver [Modelo de Datos](data-model.md)
 ---
 
 **Relacionado**
-- [Frontend Architecture](../../frontend/ARCHITECTURE.md)
-- [Backend Architecture](../../backend/ARCHITECTURE.md)
-- [API Overview](../api/README.md)
+- [Frontend Architecture](../frontend/ARCHITECTURE.md)
+- [Backend Architecture](../backend/ARCHITECTURE.md)
+- [API Overview](api.md)
