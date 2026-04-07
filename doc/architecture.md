@@ -42,7 +42,7 @@ PrintX sigue una arquitectura cliente-servidor con separación clara de responsa
 | Backend | NestJS 11+, Drizzle ORM |
 | Database | PostgreSQL 15+ |
 | Cache/Queue | Redis 7+ |
-| DevOps | Docker Compose, Nginx |
+| DevOps | Docker Compose |
 
 ## Patrones de Diseño
 

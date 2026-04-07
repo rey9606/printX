@@ -36,7 +36,6 @@ docker-compose up -d
 Esto inicia:
 - PostgreSQL (puerto 5432)
 - Redis (puerto 6379)
-- Nginx (puerto 80)
 
 ### 4. Instalar dependencias
 

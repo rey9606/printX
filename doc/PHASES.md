@@ -12,11 +12,11 @@ Plataforma digital para gestión de servicios de impresión que conecta clientes
 
 ### Tareas
 
-- [ ] 1.1 Configurar proyecto NestJS con TypeScript
-- [ ] 1.2 Configurar proyecto Angular 21 con Tailwind CSS
-- [ ] 1.3 Configurar Docker Compose (PostgreSQL, Redis, Nginx)
+- [x] 1.1 Configurar proyecto NestJS con TypeScript
+- [x] 1.2 Configurar proyecto Angular 21 con Tailwind CSS
+- [ ] 1.3 Configurar Docker Compose (PostgreSQL, Redis) - para producción
 - [ ] 1.4 Configurar estructura de carpetas del proyecto
-- [ ] 1.5 Configurar Git y GitHub con milestones
+- [ ] 1.5 Configurar Git y GitHub con workflow
 
 ---
 

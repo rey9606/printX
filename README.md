@@ -27,11 +27,10 @@ Plataforma digital para gestión de servicios de impresión.
 
 ### DevOps
 - Docker Compose
-- Nginx
 
 ## Getting Started
 
-Ver [Guía de Inicio](doc/guides/getting-started.md)
+Ver [Guía de Inicio](doc/guides.md)
 
 ## License
 

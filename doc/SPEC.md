@@ -107,7 +107,6 @@ Se implementa una arquitectura basada en eventos (Event-Driven Architecture) uti
 | Tecnología | Propósito |
 |------------|-----------|
 | Docker Compose | Orquestación de servicios |
-| Nginx | Servidor web y proxy reverso |
 
 ---
 
@@ -1402,9 +1401,9 @@ export const DESIGN_TOKENS = {
 
 ---
 
-## 10. Configuración Docker Compose
+## 10. Configuración Docker Compose (Producción)
 
-### 10.1 Archivo docker-compose.yml
+> **Nota**: Esta configuración es para **producción**. En desarrollo, usa `ng serve` directamente.
 
 ```yaml
 version: '3.8'
@@ -1455,7 +1454,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
       PORT: 3000
       DATABASE_HOST: postgres
       DATABASE_PORT: 5432
@@ -1464,47 +1463,11 @@ services:
       DATABASE_NAME: printx
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      JWT_SECRET: ${JWT_SECRET:-printx_jwt_secret_key_2024}
-      JWT_EXPIRES_IN: 15m
-      JWT_REFRESH_EXPIRES_IN: 7d
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_healthy
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
-      - upload_files:/app/uploads
-    command: npm run start:dev
-    networks:
-      - printx_network
-
-  # Frontend Angular (servido con Nginx)
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: printx_frontend
-    ports:
-      - "80:80"
-    environment:
-      API_URL: http://localhost:3000/api/v1
-    depends_on:
-      - backend
-    volumes:
-      - ./frontend/dist/browser:/usr/share/nginx/html
-    networks:
-      - printx_network
-
-  # Adminer (gestión visual de PostgreSQL)
-  adminer:
-    image: adminer:latest
-    container_name: printx_adminer
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
     networks:
       - printx_network
 
@@ -1515,20 +1478,15 @@ networks:
 volumes:
   postgres_data:
   redis_data:
-  upload_files:
 ```
 
-### 10.2 Puertos en Uso
+### 10.1 Puertos en Uso
 
 | Servicio | Puerto | URL de Acceso |
 |----------|--------|---------------|
 | PostgreSQL | 5432 | localhost:5432 |
 | Redis | 6379 | localhost:6379 |
 | Backend | 3000 | localhost:3000 |
-| Frontend | 80 | localhost |
-| Adminer | 8080 | localhost:8080 |
-
-### 10.3 Instrucciones de Uso
 
 Para iniciar todos los servicios:
 
@@ -1552,9 +1510,9 @@ docker-compose build --no-cache
 
 ### Fase 1: Fundación (Semana 1-2)
 
-- [ ] Configurar proyecto NestJS con TypeScript
-- [ ] Configurar proyecto Angular con Tailwind CSS y Signals
-- [ ] Configurar Docker Compose con PostgreSQL y Redis
+- [x] Configurar proyecto NestJS con TypeScript
+- [x] Configurar proyecto Angular con Tailwind CSS y Signals
+- [ ] Configurar Docker Compose con PostgreSQL y Redis (solo en producción)
 - [ ] Implementar módulo de autenticación (registro, login, JWT)
 - [ ] Crear estructura base de usuarios y roles
 - [ ] Configurar documentación de API con Swagger
