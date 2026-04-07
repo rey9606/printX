@@ -67,11 +67,9 @@ pnpm run start
 | Servicio | Puerto | URL |
 |----------|--------|-----|
 | Backend | 3000 | http://localhost:3000 |
-| Frontend | 4200 | http://localhost:4200 |
+| Frontend (dev) | 4200 | http://localhost:4200 |
 | PostgreSQL | 5432 | localhost:5432 |
 | Redis | 6379 | localhost:6379 |
-| Nginx | 80 | http://localhost |
-| Adminer | 8080 | http://localhost:8080 |
 
 ## Estructura del Proyecto
 
